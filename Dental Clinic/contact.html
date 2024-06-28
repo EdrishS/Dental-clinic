@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Clinic</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <nav>
+        <div class="top-bar" style="margin: -9px;">
+            <div class="icon" onclick="toggleContent()" style="margin-right: 15px; margin-left: 14px;">☰</div>
+            <div class="marquee-container" id="content" style="padding: 0px">
+                <div class="marquee">
+                    <p>Join us for expert services and support, Monday through Friday, from <span style="color: red;">
+                            6:00
+                            AM
+                            to 10:00 PM </span>. Whether you need assistance, have questions, or want to explore our
+                        offerings,
+                        we're here to help. <span style="color: red;">Please note that we are closed on Sundays to give
+                            our
+                            team
+                            a well-deserved rest.</span>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="logo-container">
+                <div class="line"></div>
+                <img src="logo.png" alt="Logo" class="logo" width="5%" height="5%" onclick="toggleAppointmentForm()">
+                <!-- Replace "logo.png" with the path to your logo -->
+                <div class="line"></div>
+            </div>
+            <div class="bottom-bar">
+                <div class="nav-links">
+                    <label><a href="index.html">Home</a></label>
+                    <label><a href="about.html">About</a></label>
+                    <div class="dropdown">
+                        <label><a href="#services">Services</a></label>
+                        <div class="dropdown-content">
+                            <a href="#cleaning">Dental Cleaning</a>
+                            <a href="#whitening">Teeth Whitening</a>
+                            <a href="#extraction">Tooth Extraction</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <label><a href="#management">Management</a></label>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="openModal()">Team Members</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <div class="icon">Devices</div>
+                        <div class="dropdown-content">
+                            <a href="#">X-ray Machines</a>
+                            <a href="#">Dental Chairs</a>
+                            <a href="#">Sterilization Equipment</a>
+                        </div>
+                    </div>
+                    <label><a href="contact.html">Contact</a></label>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="contact-section" style="background-color: transparent;">
+            <h1>Contact Us</h1>
+            <p>We would love to hear from you! Please fill out the form below to get in touch with us.</p>
+            <form action="submit_form.php" method="post" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Submit</button>
+            </form>
+            <div class="clinic-info">
+                <h2>Our Clinic</h2>
+                <p>123 Dental Street, Smile City, SM 12345</p>
+                <p>Email: info@dentalclinic.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Dental Clinic. All rights reserved.</p>
+        <div class="social">
+            <a href="#"><img src="img/facebook.jpg" alt="Facebook" width="20px"></a>
+            <a href="#"><img src="img/twitter.png" alt="Twitter" width="20px"></a>
+            <a href="#"><img src="img/youtube.png" alt="YouTube" width="20px"></a>
+        </div>
+    </footer>
+    <script>
+        function toggleContent() {
+            var content = document.getElementById('content');
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

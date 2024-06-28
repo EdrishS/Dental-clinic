@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    .hours-section {
+        background-color: transparent;
+        border-radius: 10px;
+        box-shadow: 0 4px 130px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .hours-section h1 {
+        margin-bottom: 20px;
+    }
+
+    .hours-section p {
+        margin-bottom: 40px;
+        font-size: 18px;
+        color: #555;
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    .submit-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+    }
+
+    .submit-button:hover {
+        background-color: #45a049;
+    }
+
+    .search-box {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+        margin: 20px auto;
+    }
+
+    .search-box h2 {
+        margin-bottom: 20px;
+    }
+
+    .search-box form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-box .form-group {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .search-box .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .search-box .form-group input,
+    .search-box .form-group select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    .search-box .submit-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .search-box .submit-button:hover {
+        background-color: #45a049;
+    }
+
+    .appointment-form {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .appointment-form h2 {
+        margin-bottom: 20px;
+    }
+
+    .appointment-form form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .appointment-form .form-group {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .appointment-form .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .appointment-form .form-group input,
+    .appointment-form .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    .appointment-form .submit-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .appointment-form .submit-button:hover {
+        background-color: #0056b3;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 20px 0;
+    }
+
+    .column {
+        flex: 0 0 calc(33.33% - 20px);
+        margin: 0 10px;
+    }
+
+    section {
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        overflow: auto;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+        border-radius: 10px;
+        position: relative;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .doctor-profile {
+        text-align: center;
+    }
+
+    .doctor-profile img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+    }
+
+    @media (max-width: 768px) {
+        .column {
+            flex: 0 0 calc(100% - 20px);
+            margin: 0 10px 20px;
+        }
+    }
+
+
+    /* @media (max-width: 768px) {
+
+        .hours-section,
+        .search-box {
+            max-width: 100%;
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    } */
+</style>
+
+<body>
+    <nav>
+        <div class="top-bar" style="margin: -9px;">
+            <div class="icon" onclick="toggleContent()" style="margin-right: 15px; margin-left: 14px;">☰</div>
+            <div class="marquee-container" id="content" style="padding: 0px">
+                <div class="marquee">
+                    <p>Join us for expert services and support, Monday through Friday, from <span style="color: red;">
+                            6:00
+                            AM
+                            to 10:00 PM </span>. Whether you need assistance, have questions, or want to explore our
+                        offerings,
+                        we're here to help. <span style="color: red;">Please note that we are closed on Sundays to give
+                            our
+                            team
+                            a well-deserved rest.</span>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="logo-container">
+                <div class="line"></div>
+                <img src="logo.png" alt="Logo" class="logo" width="5%" height="5%" onclick="toggleAppointmentForm()">
+                <!-- Replace "logo.png" with the path to your logo -->
+                <div class="line"></div>
+            </div>
+            <div class="bottom-bar">
+                <div class="nav-links">
+                    <label><a href="index.html">Home</a></label>
+                    <label><a href="about.html">About</a></label>
+                    <div class="dropdown">
+                        <label><a href="#services">Services</a></label>
+                        <div class="dropdown-content">
+                            <a href="#cleaning">Dental Cleaning</a>
+                            <a href="#whitening">Teeth Whitening</a>
+                            <a href="#extraction">Tooth Extraction</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <label><a href="#management">Management</a></label>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="openModal()">Team Members</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <div class="icon">Devices</div>
+                        <div class="dropdown-content">
+                            <a href="#">X-ray Machines</a>
+                            <a href="#">Dental Chairs</a>
+                            <a href="#">Sterilization Equipment</a>
+                        </div>
+                    </div>
+                    <label><a href="contact.html">Contact</a></label>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="row" style="margin: 0; padding: 25px;">
+            <div class="column">
+                <section class="hours-section" style="background-color: transparent;">
+                    <h1>Opening Hours</h1>
+                    <p>Mon - Fri: 10am - 11pm<br>Sat: 8am - 7pm<br>Sun: Closed</p>
+                    <form action="submit_form.php" method="post" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone:</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Submit</button>
+                    </form>
+                </section>
+            </div>
+            <div class="column">
+                <section class="search-box" style="margin: 0%; background-color: transparent;">
+                    <h2>Search Doctor:</h2>
+                    <form action="submit_form.php" method="post">
+                        <div class="form-group">
+                            <label for="appointment-date">Appointment Date:</label>
+                            <input type="date" id="appointment-date" name="appointment-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="select-service">Select A Service:</label>
+                            <select id="select-service" name="select-service" aria-placeholder="Select" required>
+                                <option value="as">Dental Cleaning</option>
+                                <option value="sa">Teeth Whitening</option>
+                                <option value="fd">Tooth Extraction</option>
+                            </select>
+                        </div>
+                        <a type="submit" class="submit-button" href="details.html">Search</a>
+                    </form>
+                </section>
+            </div>
+            <div class="column">
+                <section class="appointment-form" style="background-color: transparent;">
+                    <h2>Make an Appointment</h2>
+                    <form action="submit_appointment.php" method="post">
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <textarea id="description" name="description" rows="5" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone:</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <button type="submit" class="submit-button">Submit</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Dental Clinic. All rights reserved.</p>
+        <div class="social">
+            <a href="#"><img src="img/facebook.jpg" alt="Facebook" width="20px"></a>
+            <a href="#"><img src="img/twitter.png" alt="Twitter" width="20px"></a>
+            <a href="#"><img src="img/youtube.png" alt="YouTube" width="20px"></a>
+        </div>
+    </footer>
+    <script>
+        function toggleContent() {
+            var content = document.getElementById('content');
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        };
+
+
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        };
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+
+        function toggleAppointmentForm() {
+            var appointmentForm = document.querySelector('.appointment-form');
+            if (appointmentForm.style.display === "none" || appointmentForm.style.display === "") {
+                appointmentForm.style.display = "block";
+            } else {
+                appointmentForm.style.display = "none";
+            }
+        };
+    </script>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="doctor-profile">
+                <img src="0000.png" alt="Doctor Profile" width="60%">
+                <h2>Dr. John Doe</h2>
+                <p style="margin: 10%;">A dentist diagnoses and treats oral diseases, offering services like check-ups,
+                    cleanings, fillings, and surgeries to maintain oral health. They educate patients on dental care and
+                    work in diverse settings to promote dental hygiene and well-being.</p>
+                <p>Contact Information: <br> Phone: +1234567890 <br> Email: doctor@example.com</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
